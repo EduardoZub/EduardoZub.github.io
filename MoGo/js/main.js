@@ -1,1 +1,117 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('"1E 1H";$(v).1n(2(){$(".6-10").3(2(){$("5").g("a-1f-1O")});$(".y").x(":1N").O();$(".n-p .d").3(2(){$(".n-p .d").G("7").q($(N).M()).o("7");$(".y").O().q($(N).M()).1I()}).q(0).o("7");$(".6-1G, .i-J, .P-p").3(2(){$("5").g("a-J-1D")});$(".H-1C").3(2(){$("5").o("d-h-E")});$(".H-1z").3(2(){$("5").G("d-h-E")});$(".D").C({B:b,A:z,1v:b,1u:\'1t\'});$(".1s-1r-D").C({B:b,A:z,1l:[{1k:1j,1i:{1h:1,1g:1,1e:b,1c:1b}}]});$("#9").9({1a:"19",18:{"L":"6-7 ","17":"6-x-7"}});$("#9-14").12({11:0,Z:u,1P:X,W:u,t:2 t(){$("#9").9("S")}});$(".P-Q, .i-e").3(2(){$("5").g("a-e")});$(".L-1L, .6-i-w").3(2(){$("5").g("a-w")})});j 8;2 1B(){8=k l.m.1A(v.1x(\'e\'),{1w:{s:K.1q,I:-4.1p},1o:13,1m:\'1d\',16:15,Y:V});j c=k l.m.U({T:{s:K.1K,I:-4.1F},e:8,6:"h/1M.1J"});j f=k l.m.f({n:"<F>R</F>"});f.r(8,c);c.1y("3",2(){f.r(8,c)})}',62,114,'||function|click||body|icon|active|MyMap|accordion|show|true|marker|tab|map|InfoWindow|toggleClass|img|close|var|new|google|maps|content|addClass|block|eq|open|lat|resize|600|document|menu|not|tab_item|500|speed|infinite|slick|slider|change|span|removeClass|tab_img|lng|modal|56|header|index|this|hide|mask|title|MoGo|refresh|position|Marker|45|maxWidth|200|tilt|minWidth|header__search|minHeight|resizable||resizer|90|heading|activeHeader|icons|auto|heightStyle|2000|autoplaySpeed|satellite|autoplay|search|slidesToScroll|slidesToShow|settings|1024|breakpoint|responsive|mapTypeId|ready|zoom|358288|005476|coments|section|linear|cssEase|fade|center|getElementById|addListener|one|Map|initMap|two|window|use|358299|header__account|strict|fadeIn|png|008476|burger|PIN_2|first|field|maxHeight'.split('|'),0,{}))
+"use strict";
+$(document).ready(function() {
+    // script for search field START
+    $(".icon-header__search").click(function() {
+        $("body").toggleClass("show-search-field");
+    });
+
+    // script for modal window tabs START
+    $(".tab_item").not(":first").hide();
+    $(".content-block .tab").click(function() {
+        $(".content-block .tab").removeClass("active").eq($(this).index()).addClass("active");
+        $(".tab_item").hide().eq($(this).index()).fadeIn()
+    }).eq(0).addClass("active");
+
+    //script for modal show START
+    $(".icon-header__account, .close-modal, .mask-block").click(function() {
+        $("body").toggleClass("show-modal-window");
+    });
+    // script for tab modal img START
+    $(".tab_img-two").click(function() {
+        $("body").addClass("tab-img-change");
+    });
+
+    $(".tab_img-one").click(function() {
+        $("body").removeClass("tab-img-change");
+    });
+
+    // script for section-what-we-do slider START
+    $(".slider").slick({
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+            // autoplay: true,
+            // autoplaySpeed: 2000
+    });
+    // $("#show-slide1").on('click', function() {
+    //     // slideIndex++;
+    // });
+    // script for section-coments slider START
+    $(".section-coments-slider").slick({
+        infinite: true,
+        speed: 500,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                // arrows: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                // centerMode: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            }
+        }]
+    });
+
+    // script for section-what-we-do accordion START
+    $("#accordion").accordion({
+        heightStyle: "auto",
+        icons: {
+            "header": "icon-active ",
+            "activeHeader": "icon-not-active"
+        }
+    });
+
+    $("#accordion-resizer").resizable({
+        minHeight: 0,
+        minWidth: 600,
+        maxHeight: 200,
+        maxWidth: 600,
+        resize: function() {
+            $("#accordion").accordion("refresh");
+        }
+    });
+
+    // script for show map START
+    $(".mask-title, .close-map").click(function() {
+        $("body").toggleClass("show-map");
+    });
+    // script for show menu STARt
+    $(".header-burger, .icon-close-menu").click(function() {
+        $("body").toggleClass("show-menu");
+    });
+
+});
+// script for map START
+var MyMap;
+
+function initMap() {
+    MyMap = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 56.005476, lng: -4.358288 },
+        zoom: 13,
+        // mapTypeId: google.maps.MapTypeId.SATELLITE,
+        mapTypeId: 'satellite',
+        heading: 90,
+        tilt: 45
+
+    });
+
+
+
+    var marker = new google.maps.Marker({
+        position: { lat: 56.008476, lng: -4.358299 },
+        map: MyMap,
+        icon: "img/PIN_2.png"
+    })
+
+    var InfoWindow = new google.maps.InfoWindow({
+        content: "<span>MoGo</span>"
+    })
+
+    InfoWindow.open(MyMap, marker)
+
+    marker.addListener("click", function() {
+        InfoWindow.open(MyMap, marker);
+    })
+}
