@@ -1,1 +1,104 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('"R H";$(16).1f(2(){$(".5-1e").3(2(){$("8").b("a-1d-1c")});$(".B").w(":1b").A();$(".C-e .9").3(2(){$(".C-e .9").s("7").c($(z).y()).d("7");$(".B").A().c($(z).y()).15()}).c(0).d("7");$(".5-13, .j-v, .12-e").3(2(){$("8").b("a-v-Z")});$(".t-Y").3(2(){$("8").d("9-q-p")});$(".t-V").3(2(){$("8").s("9-q-p")});$(".o").n({m:4,l:f,Q:4,P:\'O\',i:4,g:x});$(".N-M-o").n({m:4,l:f,G:[{1g:E,D:{1a:19,18:1,17:1,i:4,g:x}}]});$("#6").6({W:"U",T:{"h":"5-7 ","S":"5-w-7"}});$("#6-K").J({I:0,F:r,14:11,10:r,k:2 k(){$("#6").6("X")}});$(".h-L, .5-j-u").3(2(){$("8").b("a-u")})});',62,79,'||function|click|true|icon|accordion|active|body|tab|show|toggleClass|eq|addClass|block|500|autoplaySpeed|header|autoplay|close|resize|speed|infinite|slick|slider|change|img|600|removeClass|tab_img|menu|modal|not|2000|index|this|hide|tab_item|content|settings|1024|minWidth|responsive|strict|minHeight|resizable|resizer|burger|coments|section|linear|cssEase|fade|use|activeHeader|icons|auto|one|heightStyle|refresh|two|window|maxWidth|200|mask|header__account|maxHeight|fadeIn|document|slidesToScroll|slidesToShow|false|arrows|first|field|search|header__search|ready|breakpoint'.split('|'),0,{}))
+"use strict";
+
+$(document).ready(function () {
+  // script for search field START
+  $(".icon-header__search").click(function () {
+    $("body").toggleClass("show-search-field");
+  }); // script for modal window tabs START
+
+  $(".tab_item").not(":first").hide();
+  $(".content-block .tab").click(function () {
+    $(".content-block .tab").removeClass("active").eq($(this).index()).addClass("active");
+    $(".tab_item").hide().eq($(this).index()).fadeIn();
+  }).eq(0).addClass("active"); //script for modal show START
+
+  $(".icon-header__account, .close-modal, .mask-block").click(function () {
+    $("body").toggleClass("show-modal-window");
+  }); // script for tab modal img START
+
+  $(".tab_img-two").click(function () {
+    $("body").addClass("tab-img-change");
+  });
+  $(".tab_img-one").click(function () {
+    $("body").removeClass("tab-img-change");
+  }); // script for section-what-we-do slider START
+
+  $(".slider").slick({
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear',
+    autoplay: true,
+    autoplaySpeed: 2000
+  }); // script for section-coments slider START
+
+  $(".section-coments-slider").slick({
+    infinite: true,
+    speed: 500,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000
+      }
+    }]
+  }); // script for section-what-we-do accordion START
+
+  $("#accordion").accordion({
+    heightStyle: "auto",
+    icons: {
+      "header": "icon-active ",
+      "activeHeader": "icon-not-active"
+    }
+  });
+  $("#accordion-resizer").resizable({
+    minHeight: 0,
+    minWidth: 600,
+    maxHeight: 200,
+    maxWidth: 600,
+    resize: function resize() {
+      $("#accordion").accordion("refresh");
+    }
+  }); // script for show map START
+
+  $(".mask-title, .close-map").click(function () {
+    $("body").toggleClass("show-map");
+  }); // script for show menu STARt
+
+  $(".header-burger, .icon-close-menu").click(function () {
+    $("body").toggleClass("show-menu");
+  });
+}); // script for map START
+
+var MyMap;
+
+function initMap() {
+  MyMap = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: 56.005476,
+      lng: -4.358288
+    },
+    zoom: 13,
+    mapTypeId: 'satellite',
+    heading: 90,
+    tilt: 45
+  });
+  var marker = new google.maps.Marker({
+    position: {
+      lat: 56.008476,
+      lng: -4.358299
+    },
+    map: MyMap,
+    icon: "img/PIN_2.png"
+  });
+  var InfoWindow = new google.maps.InfoWindow({
+    content: "<span>MoGo</span>"
+  });
+  InfoWindow.open(MyMap, marker);
+  marker.addListener("click", function () {
+    InfoWindow.open(MyMap, marker);
+  });
+}
