@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'PFDinTextPro-Regular';
-  src: url("../fonts/PFDinTextPro-Regular35424.ttf") format("truetype"), url("../fonts/PFDinTextPro-Regular35424.woff") format("woff"), url("../fonts/PFDinTextPro-Regular35424.woff2") format("woff2");
+  src: url("../fonts/PFDinTextPro-Regular_35424.ttf") format("truetype"), url("../fonts/PFDinTextPro-Regular_35424.woff") format("woff"), url("../fonts/PFDinTextPro-Regular35424.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PFDinTextPro-Bold';
-  src: url("../fonts/PFDinTextPro-Bold35413.ttf") format("truetype"), url("../fonts/PFDinTextPro-Bold35413.woff") format("woff"), url("../fonts/PFDinTextPro-Bold35413.woff2") format("woff2");
+  src: url("../fonts/PFDinTextPro-Bold_35413.ttf") format("truetype"), url("../fonts/PFDinTextPro-Bold35413.woff") format("woff"), url("../fonts/PFDinTextPro-Bold35413.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -867,7 +867,7 @@ body.open-menu .header-links-wrap {
 
 .section-other-products .products-block__img-3 {
   width: 100%;
-  background-image: url(/img/img30.png);
+  background-image: url(../img/img30.png);
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: bottom;
